@@ -1,19 +1,14 @@
-import { useEffect } from "react";
-import "./glow-card.scss";
+import { useEffect } from 'react';
+import './glow-card.scss';
 
 interface IProps {
   children: React.ReactNode;
   identifier: string;
 }
-
 const GlowCard = ({ children, identifier }: IProps) => {
   useEffect(() => {
-    const CONTAINER = document.querySelector(
-      `.glow-container-${identifier}`
-    )! as HTMLElement;
-    const CARDS = document.querySelectorAll(
-      `.glow-card-${identifier}`
-    )! as NodeListOf<HTMLElement>;
+    const CONTAINER = document.querySelector(`.glow-container-${identifier}`)! as HTMLElement;
+    const CARDS = document.querySelectorAll(`.glow-card-${identifier}`)! as NodeListOf<HTMLElement>;
 
     const CONFIG = {
       proximity: 40,
@@ -34,9 +29,9 @@ const GlowCard = ({ children, identifier }: IProps) => {
           event?.y > CARD_BOUNDS.top - CONFIG.proximity &&
           event?.y < CARD_BOUNDS.top + CARD_BOUNDS.height + CONFIG.proximity
         ) {
-          CARD.style.setProperty("--active", "1");
+          CARD.style.setProperty('--active', "1");
         } else {
-          CARD.style.setProperty("--active", "" + CONFIG.opacity);
+          CARD.style.setProperty('--active', "" + CONFIG.opacity);
         }
 
         const CARD_CENTER = [
@@ -51,19 +46,19 @@ const GlowCard = ({ children, identifier }: IProps) => {
 
         ANGLE = ANGLE < 0 ? ANGLE + 360 : ANGLE;
 
-        CARD.style.setProperty("--start", "" + (ANGLE + 90));
+        CARD.style.setProperty('--start', "" + (ANGLE + 90));
       }
     };
 
-    document.body.addEventListener("pointermove", UPDATE);
+    document.body.addEventListener('pointermove', UPDATE);
 
     const RESTYLE = () => {
-      CONTAINER.style.setProperty("--gap", "" + CONFIG.gap);
-      CONTAINER.style.setProperty("--blur", "" + CONFIG.blur);
-      CONTAINER.style.setProperty("--spread", "" + CONFIG.spread);
+      CONTAINER.style.setProperty('--gap', "" + CONFIG.gap);
+      CONTAINER.style.setProperty('--blur', "" + CONFIG.blur);
+      CONTAINER.style.setProperty('--spread', "" + CONFIG.spread);
       CONTAINER.style.setProperty(
-        "--direction",
-        CONFIG.vertical ? "column" : "row"
+        '--direction',
+        CONFIG.vertical ? 'column' : 'row'
       );
     };
 
@@ -72,7 +67,7 @@ const GlowCard = ({ children, identifier }: IProps) => {
 
     // Cleanup event listener
     return () => {
-      document.body.removeEventListener("pointermove", UPDATE);
+      document.body.removeEventListener('pointermove', UPDATE);
     };
   }, [identifier]);
 
