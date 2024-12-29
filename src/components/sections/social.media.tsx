@@ -4,31 +4,51 @@ import { FaTiktok } from "react-icons/fa";
 import { SiYoutubeshorts } from "react-icons/si";
 
 interface IProps {
-    youtube: string;
-    tiktok: string;
-    udemy: string;
-    facebook: string;
+  youtube: string;
+  tiktok: string;
+  udemy: string;
+  facebook: string;
 }
+
 const SocialMedia = (props: IProps) => {
-    const { youtube, tiktok, udemy, facebook } = props;
+  const { youtube, tiktok, udemy, facebook } = props;
 
-    return (
-        <div className="my-4 d-flex items-center gap-3">
-            <a href={youtube} target='_blank' className="highlight" title="Youtube Hỏi Dân IT">
-                <SiYoutubeshorts size={30} />
-            </a>
-            <a href={tiktok} target='_blank' className="highlight" title="Tiktok Hỏi Dân IT">
-                <FaTiktok size={30} />
-            </a>
-            <a href={udemy} target='_blank' className="highlight" title="Udemy Hỏi Dân IT">
-                <SiUdemy size={30} />
-            </a>
-            <a href={facebook} target='_blank' className="highlight" title="Facebook Hỏi Dân IT">
-                <FaFacebook size={30} />
-            </a>
-
-        </div>
-    )
-}
+  return (
+    <div className="my-4 d-flex items-center gap-3">
+      <a
+        href={youtube}
+        target="_blank"
+        className="highlight"
+        title="Youtube Hỏi Dân IT"
+      >
+        <SiYoutubeshorts size={30} />
+      </a>
+      <a
+        href={tiktok}
+        target="_blank"
+        className="highlight"
+        title="Tiktok Hỏi Dân IT"
+      >
+        <FaTiktok size={30} />
+      </a>
+      <a
+        href={udemy}
+        target="_blank"
+        className="highlight"
+        title="Udemy Hỏi Dân IT"
+      >
+        <SiUdemy size={30} />
+      </a>
+      <a
+        href={facebook}
+        target="_blank"
+        className="highlight"
+        title="Facebook Hỏi Dân IT"
+      >
+        <FaFacebook size={30} />
+      </a>
+    </div>
+  );
+};
 
 export default SocialMedia;
