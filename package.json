@@ -13,6 +13,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "bootstrap": "5.3.3",
