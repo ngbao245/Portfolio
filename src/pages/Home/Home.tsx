@@ -1,8 +1,36 @@
-export const Home = () => {
+// src/pages/Home/Home.tsx
+import Banner from "../../components/Banner/Banner";
+import Header from "../../components/Header/Header";
+import "./Home.css";
+
+const Home = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-4">Welcome Home</h1>
-      <p>This is your home page. Start building your content here!</p>
-    </div>
+    <>
+      <Header />
+      <Banner />
+
+      <div>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+        <h1>Hello World</h1>
+      </div>
+    </>
   );
 };
+
+export default Home;

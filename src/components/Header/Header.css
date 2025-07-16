@@ -1,0 +1,18 @@
+/* src/components/Header/Header.css */
+header {
+  width: min(1200px, 90vw);
+  margin: auto;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  width: 30px;
+}
+
+header nav ul {
+  display: flex;
+  gap: 30px;
+}

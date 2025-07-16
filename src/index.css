@@ -1,0 +1,23 @@
+body {
+  color: #eee;
+  font-family: Poppins;
+  margin: 0;
+  background-image: repeating-linear-gradient(
+      to right,
+      #2d2a44 0 1px,
+      transparent 2px 200px
+    ),
+    repeating-linear-gradient(to bottom, #2d2a44 0 1px, transparent 2px 200px),
+    radial-gradient(at 50% 50%, #2d2a44, #1d1b34);
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
