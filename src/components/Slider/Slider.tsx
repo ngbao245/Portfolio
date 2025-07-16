@@ -8,20 +8,30 @@ interface SliderProps {
   reverse?: boolean;
 }
 
-const Slider = ({ width, height, quantity, images, reverse = false }: SliderProps) => {
+const Slider = ({
+  width,
+  height,
+  quantity,
+  images,
+  reverse = false,
+}: SliderProps) => {
   return (
     <div
       className="slider"
       style={{
-        ['--width' as any]: width,
-        ['--height' as any]: height,
-        ['--quantity' as any]: quantity,
+        ["--width" as any]: width,
+        ["--height" as any]: height,
+        ["--quantity" as any]: quantity,
       }}
       {...(reverse && { reverse: "true" })}
     >
       <div className="list">
         {images.map((img, index) => (
-          <div className="item" style={{ ['--position' as any]: index + 1 }} key={index}>
+          <div
+            className="item"
+            style={{ ["--position" as any]: index + 1 }}
+            key={index}
+          >
             <img src={img} alt={`slider-img-${index}`} />
           </div>
         ))}
