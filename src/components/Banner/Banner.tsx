@@ -5,8 +5,6 @@ const Banner = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
 
-  let resizeTimeout: number;
-
   useEffect(() => {
     const canvas = canvasRef.current;
     const hero = heroRef.current;
@@ -23,22 +21,37 @@ const Banner = () => {
     canvas.width = width;
     canvas.height = height;
 
-    let dots: {
+    type Dot = {
       x: number;
       y: number;
       size: number;
       color: string;
-    }[] = [];
+    };
+    let dots: Dot[] = [];
 
     const generateDots = () => {
       dots = [];
-      for (let i = 0; i < 50; i++) {
-        dots.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 3 + 5,
-          color: arrayColors[Math.floor(Math.random() * arrayColors.length)],
-        });
+      const numDots = 150;
+      const minDistance = 30;
+
+      for (let i = 0; i < numDots; i++) {
+        let valid = false;
+        let newDot!: Dot;
+
+        while (!valid) {
+          newDot = {
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 3 + 2,
+            color: arrayColors[Math.floor(Math.random() * arrayColors.length)],
+          };
+
+          valid = dots.every(
+            (dot) =>
+              Math.hypot(newDot.x - dot.x, newDot.y - dot.y) >= minDistance
+          );
+        }
+        dots.push(newDot);
       }
     };
 
@@ -63,7 +76,7 @@ const Banner = () => {
 
       dots.forEach((dot) => {
         const distance = Math.hypot(mouse.x - dot.x, mouse.y - dot.y);
-        if (distance < 300) {
+        if (distance < 200) {
           ctx.strokeStyle = dot.color;
           ctx.lineWidth = 1;
           ctx.beginPath();
